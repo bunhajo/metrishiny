@@ -13,7 +13,11 @@ shinyUI(pageWithSidebar(
     uiOutput("moreoptions"),
     conditionalPanel(
       condition="input.moreoptions==true",
-      uiOutput("min")
+      uiOutput("min"),
+      uiOutput("horit"),
+      uiOutput("perc"),
+      uiOutput("xlab"),
+      uiOutput("ylab")
     ),  
   
     actionButton("plotear", "Plot")

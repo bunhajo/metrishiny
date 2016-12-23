@@ -29,7 +29,6 @@ shinyServer(function(input, output) {
   output$fromCol <- renderUI({
     df <-filedata()
     if (is.null(df)) return(NULL)
-    
     items=names(df)
     names(items)=items
     selectInput("from", "Categorias:",items)
@@ -39,13 +38,28 @@ shinyServer(function(input, output) {
   output$Title <- renderUI({
     df <-filedata()
     if (is.null(df)) return(NULL)
-    
     textInput("Title", "Titulo", value="")
   })
   
+  output$xlab <- renderUI({
+    textInput("xlab", "Eje X", value="")
+  })
+  
+  output$ylab <- renderUI({
+    textInput("ylab", "Eje y", value="")
+  })
+  
   output$min <- renderUI({
+    numericInput("min", "Minimo", value="80")
+  })
+  
+  output$horit <- renderUI({
+    checkboxInput ("horit", "Horizontal", TRUE)
+  })
+  
+  output$perc <- renderUI({
     df <-filedata()
-    numericInput("min", "Minimo", value="")
+    checkboxInput ("perc", "Porcentage", TRUE)
   })
   
   output$filetable <- renderTable({
@@ -63,6 +77,7 @@ shinyServer(function(input, output) {
     df <-filedata()
     if (is.null(df) | input$plotear == 0) return(NULL)
     metrigraphics::metri_bar(df[1:15,],x=input$from,y=input$to,
-                             title = input$Title, horit = FALSE, min = 80)  
+                             title = input$Title, horit = input$horit, min = input$min, perc = input$perc,
+                             xlab = input$xlab, ylab = input$ylab)  
   })
 })
