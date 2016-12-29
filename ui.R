@@ -1,12 +1,14 @@
-library(metrigraphics)
+source("C:/Users/Tornero/Documents/R/Work/metrishiny/metri_graphics.R")
 
-shinyUI(pageWithSidebar(
+
+shinyUI(fluidPage(
   headerPanel("Metrigraphics"),
   sidebarPanel(
     #Selector for file upload
     fileInput('datafile', 'Choose CSV file',
               accept=c('text/csv', 'text/comma-separated-values','text/plain', ".csv", ".txt")),
     #These column selectors are dynamically created when the file is loaded
+    uiOutput("func"),
     uiOutput("fromCol"),
     uiOutput("toCol"),
     uiOutput("Title"),
@@ -28,6 +30,8 @@ shinyUI(pageWithSidebar(
     headerPanel("Archivo"),
     tableOutput("filetable"),
     headerPanel("Plot"),
-    plotOutput("newplot", width = "720px", height = "720px")
+    plotOutput("plot", width = "540px", height = "540px")
+    #plotOutput("metribar1", width = "540px", height = "380px")
+    
   )
 ))
