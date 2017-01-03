@@ -1,4 +1,4 @@
-source("C:/Users/Tornero/Documents/R/Work/metrishiny/metri_graphics.R")
+source("C:/Users/juan_/Downloads/Scripts/Utilities/graphics/R/metri_graphics.R")
 
 
 shinyUI(fluidPage(
@@ -11,6 +11,14 @@ shinyUI(fluidPage(
     uiOutput("func"),
     uiOutput("fromCol"),
     uiOutput("toCol"),
+    uiOutput("subdata"),
+    uiOutput("Ejex"),
+    uiOutput("Ejey"),
+    uiOutput("Radio"),
+    uiOutput("Texto"),
+    uiOutput("Path"),
+    uiOutput("size"),
+    uiOutput("group"),
     uiOutput("Title"),
     uiOutput("moreoptions"),
     conditionalPanel(
@@ -19,7 +27,8 @@ shinyUI(fluidPage(
       uiOutput("horit"),
       uiOutput("perc"),
       uiOutput("xlab"),
-      uiOutput("ylab")
+      uiOutput("ylab"),
+      uiOutput("prop")
     ),  
   
     actionButton("plotear", "Plot")
@@ -30,7 +39,7 @@ shinyUI(fluidPage(
     headerPanel("Archivo"),
     tableOutput("filetable"),
     headerPanel("Plot"),
-    plotOutput("plot", width = "540px", height = "540px")
+    plotOutput("plot", width = "980px", height = "980px")
     #plotOutput("metribar1", width = "540px", height = "380px")
     
   )
