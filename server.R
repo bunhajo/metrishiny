@@ -16,7 +16,7 @@ plotfunc = function(input, output, filedata){
        print(p)
        #input$subdata
       })
-      if(input$func=="Treemap")({
+      if(input$func=="Treema")({
         metri_treemap(df, group=colnames(df)[1:input$group], size=input$size, size.labels = input$size.labels)
       })
       if(input$func=="path graph"){
