@@ -9,26 +9,43 @@ shinyUI(fluidPage(
               accept=c('text/csv', 'text/comma-separated-values','text/plain', ".csv", ".txt")),
     #These column selectors are dynamically created when the file is loaded
     uiOutput("func"),
+    #Bars
     uiOutput("fromCol"),
     uiOutput("toCol"),
+    #Tails
     uiOutput("subdata"),
+    #Bubble Chart
     uiOutput("Ejex"),
     uiOutput("Ejey"),
     uiOutput("Radio"),
     uiOutput("Texto"),
+    #Path Graph
     uiOutput("Path"),
+    #Treemap
     uiOutput("size"),
     uiOutput("group"),
+    #Bullet Graph
+    uiOutput("tit"),
+    uiOutput("value"),
+    uiOutput("marker"),
+    uiOutput("opt_range"),
+    uiOutput("range"),
+    uiOutput("n_range"),
+    #Common Variables
     uiOutput("Title"),
     uiOutput("moreoptions"),
     conditionalPanel(
       condition="input.moreoptions==true",
+      #Bars
       uiOutput("min"),
       uiOutput("horit"),
       uiOutput("perc"),
+      uiOutput("prop"),
+      #Common Variables
       uiOutput("xlab"),
       uiOutput("ylab"),
-      uiOutput("prop")
+      #Treemap
+      uiOutput("size.labels")
     ),  
   
     actionButton("plotear", "Plot")
